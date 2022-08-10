@@ -1,0 +1,94 @@
+﻿@model Lab4.Models.ViewModels.CommunityViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Community Memberships</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Budget
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Communities)
+        {
+            string selectedRow = "";
+            if (item.ID == ViewData["ID"]?.ToString())
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Budget)
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-controller="Advertisements" asp-action="Index" asp-route-id="@item.ID">Ads</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--To display members of the community-->
+@if (Model.Students != null)
+{
+
+    <div class="studentCommunity">
+
+        <h1>Members of the community</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    @if (Model.Students.Count() > 0)
+                    {
+
+
+                        <th>
+                            Name
+                        </th>
+                    }
+                    else
+                    {
+                        <td>
+
+                            <b>No membership record exist</b>
+                        </td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Students)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>                   
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+}
+

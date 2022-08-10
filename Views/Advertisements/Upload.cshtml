@@ -1,0 +1,40 @@
+﻿@using Lab4.Models
+@model Lab4.Models.Advertisement;
+
+@{ ViewData["Title"] = "Upload";
+    Layout = "_Layout";
+    var community = ViewData["community"] as IList<Community>; }
+
+<h1>Upload</h1>
+
+@foreach (var item in community)
+{
+<h4>Upload an add for community @item.Title</h4>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Upload" enctype="multipart/form-data">
+            <div class="form-group">
+
+                <div class="btn btn-sm float-left">
+                    <input id="communityId" name="communityId" type="hidden" value="@Context.Request.RouteValues["id"]" />
+                    <input class="fileUpload" name="advertisementImage" type="file">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button name="upload" class="btn btn-primary uploadNow">Upload Now</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@ViewData["communityID"]">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

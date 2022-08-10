@@ -1,0 +1,73 @@
+﻿@using Lab4.Models
+
+@{
+    ViewData["Title"] = "Index";
+    var temp = ViewData["StudentCommunities"] as IList<Community>;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Full Name
+        </dt>
+        <dd class="col-sm-10">
+            @ViewData["FullName"]?.ToString()
+        </dd>
+    </dl>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <table>
+            @foreach (var item in ViewData["Communities"] as IList<Community>)
+            {
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @if ((temp.FirstOrDefault(s => s.ID == item.ID)) != null)
+                        {
+                            @Html.ActionLink(
+                                            "Unregister",                   // Text to display
+                                            "RemoveMemberships",            // actionName
+                                            "Students",                    // controllerName
+                                            new                            // routeValue
+                                            {
+                                                studentId = Context.Request.RouteValues["id"],// Get student id from URL
+                                                communityID = item.ID
+                                            },
+                                            null                            // htmlAttributes
+                                        )
+                        }
+                        else
+                        {
+                            @Html.ActionLink(
+                                            "Register",                     // Text to display
+                                            "AddMemberships",            // actionName
+                                            "Students",                    // controllerName
+                                            new                            // routeValue
+                                            {
+                                                studentId = Context.Request.RouteValues["id"],// Get student id from URL
+                                                communityID = item.ID
+                                            },
+                                            null                            // htmlAttributes
+                                        )
+
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div>
+    <a href="/Students">Back to List</a>
+</div>

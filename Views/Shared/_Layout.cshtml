@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="container">
+        <div class="header">
+            <header>
+                <div class="lists">
+                    <div class="profile">
+
+                        <img class="profile-item" src="~/image/profile-image.png" />
+                    </div>
+                    <ul class="list">
+                        <li class="list-item">
+                            <a asp-controller="Home" asp-action="Index">HOME</a>
+                        </li>
+                        <li class="list-item">
+                            <a asp-controller="Students" asp-action="Index">STUDENTS</a>
+                        </li>
+                        <li class="list-item">
+                            <a asp-controller="Communities" asp-action="Index">COMMUNITIES</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+
+        <div class="body">
+                @RenderBody()
+        </div>
+    </section>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

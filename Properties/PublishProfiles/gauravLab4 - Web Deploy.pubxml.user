@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmd+etG3ONU+tcc2rxLRy4gAAAAACAAAAAAAQZgAAAAEAACAAAABKdVNWEmknKgXh4rLlV9st1H+vDFKlXclgR2wi8GIRQwAAAAAOgAAAAAIAACAAAAAXoSpOovpAjHvd4hjxv1FjnBshJ6KhyrGhaMkE0dmCvIAAAABUUzrZ9g005Y/OdxuIoNBOUXuaGpBTqf2BSNUxT4CAzhzjxzJXT9vgvbIZt0s300udsFs5KDazLfmqO7evjmvWMI6Sqzs41xKCxxeaCgLVnQ5ksn/kucTN5cDc3CCaE9OiHPsrCxEy313fQtR8VIXFiINvVHzS2EN+i0+Xy0OfYUAAAACzR/E12g0riNpdDwKQmXOM16RX0Dt6CSht0vq1umyavtVklm7n3riNRKGyz8T98WFcnFsRRG7wunAUtzY9pMHu</EncryptedPassword>
+    <History>True|2021-04-17T03:38:17.1726447Z;True|2021-04-16T21:44:25.6660980-04:00;True|2021-03-24T19:08:54.8137090-04:00;False|2021-03-24T19:05:39.4610443-04:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:gauravlabs.database.windows.net,1433%3bInitial Catalog=gauravLab4%3bPersist Security Info=False%3bUser ID=gaurav%3bPassword=sql%40123s%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Lab4.Data.SchoolCommunityContext">
+      <Value>Server=tcp:gauravlabs.database.windows.net,1433%3bInitial Catalog=gauravLab4%3bPersist Security Info=False%3bUser ID=gaurav%3bPassword=sql%40123s%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
